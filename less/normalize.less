@@ -8,8 +8,8 @@
 // Correct `block` display not defined in IE 8/9.
 //
 
-article,
-aside,
+article, //wcl: >=html5, div has no semantic, just a hook to style;
+aside, //wcl: aside vs nav:
 details,
 figcaption,
 figure,
@@ -18,7 +18,7 @@ header,
 hgroup,
 main,
 nav,
-section,
+section,// a semantic div; section vs article:
 summary {
   display: block;
 }
@@ -30,7 +30,7 @@ summary {
 audio,
 canvas,
 video {
-  display: inline-block;
+  display: inline-block; //wcl:
 }
 
 //
@@ -94,7 +94,7 @@ a {
 //
 
 a:focus {
-  outline: thin dotted;
+  outline: thin dotted; //wcl: outline vs border: outline do not take up space; outline may be non-rectangular
 }
 
 //
@@ -116,7 +116,7 @@ a:hover {
 //
 
 h1 {
-  font-size: 2em;
+  font-size: 2em; //wcl:
   margin: 0.67em 0;
 }
 
@@ -124,7 +124,7 @@ h1 {
 // Address styling not present in IE 8/9, Safari 5, and Chrome.
 //
 
-abbr[title] {
+abbr[title] { //wcl:The <abbr title="People's Republic of China">PRC</abbr> was founded in 1948.
   border-bottom: 1px dotted;
 }
 
@@ -132,16 +132,17 @@ abbr[title] {
 // Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
 //
 
-b,
-strong {
-  font-weight: bold;
+//wcl: i:italic; em:emphasize
+b, //wcl: bold, is a style (that is why it got a lot of flak)
+strong { //wcl: is an indication of how something
+  font-weight: bold;//wcl: define degree of thin/bold
 }
 
 //
 // Address styling not present in Safari 5 and Chrome.
 //
 
-dfn {
+dfn { //wcl: ignore
   font-style: italic;
 }
 
@@ -149,17 +150,18 @@ dfn {
 // Address differences between Firefox and other browsers.
 //
 
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
+hr { //wcl: horizontal rule
+  -moz-box-sizing: content-box; //wcl: Mozilla can't recognize box-sizing, need to add prefix '-moz-'
+  box-sizing: content-box; //wcl: can be content-box(default)/border-box, content-box: css width = only content width
+  height: 0;               //wcl: border-box:css width = content + padding + border (ie6 default)
 }
+//wcl: when to use border-box?
 
 //
 // Address styling not present in IE 8/9.
 //
 
-mark {
+mark { //wcl: mark the text:<p>Do not forget to buy <mark>milk</mark> today.</p> html5 tag
   background: #ff0;
   color: #000;
 }
